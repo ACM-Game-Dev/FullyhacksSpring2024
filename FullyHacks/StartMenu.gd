@@ -14,5 +14,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	var game_scene = mapScene.instantiate()
-	
-	get_tree().root.add_child(game_scene)
+	get_tree().change_scene_to_packed(mapScene)

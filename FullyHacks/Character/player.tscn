@@ -286,6 +286,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_fdgnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_5jhg2"]
 resource_name = "walk"
 loop_mode = 1
@@ -300,21 +315,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_fdgnk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqxr0"]
@@ -398,6 +398,7 @@ unique_name_in_owner = true
 [connection signal="melee" from="." to="." method="_on_melee"]
 [connection signal="melee" from="." to="Arm" method="_on_player_melee"]
 [connection signal="melee" from="." to="Arm/AnimatedSprite2D" method="_on_player_melee"]
+[connection signal="player_death" from="." to="." method="_on_player_death"]
 [connection signal="ranged" from="." to="." method="_on_ranged"]
 [connection signal="timeout" from="Cooldowns/MeleeTimer" to="." method="_on_melee_timer_timeout"]
 [connection signal="timeout" from="Cooldowns/RangedTimer" to="." method="_on_ranged_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wv2sa2hytkaw"]
+[gd_scene load_steps=7 format=3 uid="uid://bjphlcpovamfg"]
 
 [ext_resource type="Script" path="res://StartMenu.gd" id="1_oymen"]
 [ext_resource type="FontFile" uid="uid://c8mcrkdw8rx5p" path="res://font.ttf" id="2_5e80g"]

@@ -15,6 +15,7 @@ var difficulty = 1
 var time_speed = 0.1
 
 var melee_enemy = preload("res://Melee.tscn")
+var gameover_scene = preload("res://game_over.tscn")
 
 
 func check_spawn_monster():
@@ -64,5 +65,3 @@ func _process(delta):
 		get_tree().quit()
 
 
-func _on_player_player_death():
-	get_tree().quit()

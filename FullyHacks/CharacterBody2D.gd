@@ -8,7 +8,7 @@ signal spire_enter
 
 
 var bullet = preload("res://rad_particle.tscn")
-
+var gameover_scene = preload("res://game_over.tscn")
 
 const SPEED = 300.0
 const MAX_ENERGY = 100
@@ -17,7 +17,7 @@ const RANGED_COOLDOWN = 0.1
 
 var melee_damage = 25.0
 var ranged_damage = 50.0
-
+var score = 0.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -50,6 +50,8 @@ func check_ranged():
 		ranged.emit()
 
 func _physics_process(delta):
+	score += delta
+	print(score)
 	$PointLight2D.energy = energy /75.0
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_down", "move_up")
@@ -108,3 +110,8 @@ func _on_ranged_timer_timeout():
 func gain_energy(val):
 	if energy <= MAX_ENERGY:
 		energy += val
+
+func _on_player_death():
+	var game_over = gameover_scene.instantiate()
+	Score.set_score(score)
+	get_tree().change_scene_to_packed(gameover_scene)
