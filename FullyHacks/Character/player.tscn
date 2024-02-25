@@ -100,9 +100,11 @@ sprite_frames = SubResource("SpriteFrames_4qf0m")
 
 [node name="MeleeTimer" type="Timer" parent="Cooldowns"]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="RangedTimer" type="Timer" parent="Cooldowns"]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="Arm" type="Area2D" parent="."]
 unique_name_in_owner = true

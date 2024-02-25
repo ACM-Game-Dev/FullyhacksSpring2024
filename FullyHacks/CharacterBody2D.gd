@@ -9,7 +9,9 @@ const SPEED = 200.0
 
 const MELEE_COOLDOWN = 0.6
 const MELEE_DURATION = 0.15
-const RANGED_COOLDOWN = 0.05
+const RANGED_COOLDOWN = 0.1
+
+var bullet = preload("res://rad_particle.tscn")
 
 
 var prevVelocity = Vector2.ZERO
@@ -64,26 +66,36 @@ func _physics_process(delta):
 
 
 func _on_melee():
-	#print("MELEE'D")
+	print("MELEE'D")
 	can_melee = false
 	%Arm.set_collision_layer_value(2,true) 
-	#print("Arm Touchable")godot 
+	print("Arm Touchable") 
 	%Arm/HitReset.wait_time = MELEE_DURATION
 	%Arm/HitReset.start()
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
 
 func _on_ranged():
-	#print("RANGED'D")
-	can_melee = false
-	%MeleeTimer.wait_time = MELEE_COOLDOWN
-	%MeleeTimer.start()
+	print("RANGED'D")
+	can_ranged = false
+	
+	energy -= 1
+	
+	var new_bullet = bullet.instantiate()
+	get_parent().add_child(new_bullet)
+	new_bullet.global_position = %Arm.global_position
+	new_bullet.look_at(mouse_pos)
+
+	
+	
+	%RangedTimer.wait_time = RANGED_COOLDOWN
+	%RangedTimer.start()
 
 func _on_melee_timer_timeout():
 	can_melee = true
 
 func _on_ranged_timer_timeout():
-	can_melee = true
+	can_ranged = true
 
 func _player():
 	pass
