@@ -20,7 +20,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_4x3vx")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
-unique_name_in_owner = true
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
@@ -32,17 +31,14 @@ position = Vector2(-8, 116)
 position = Vector2(9, 312)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
-one_way_collision = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="MainWalls"]
 position = Vector2(4, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D2"]
 position = Vector2(-7, -338)
-rotation = 3.14159
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
-one_way_collision = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="MainWalls"]
 position = Vector2(-81, 34)
@@ -50,20 +46,17 @@ rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D3"]
 position = Vector2(-4, 313)
-scale = Vector2(20.1002, 1.01194)
+scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
-one_way_collision = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="MainWalls"]
 position = Vector2(56, 37)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D4"]
-position = Vector2(3.99932, -338)
-rotation = 3.14159
+position = Vector2(-7, -338)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
-one_way_collision = true
 
 [node name="Corners" type="Node2D" parent="."]
 
@@ -243,29 +236,5 @@ wait_time = 0.1
 autostart = true
 
 [node name="Node" type="Node" parent="TimeIncrement"]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="MrSuck" parent="Node2D" instance=ExtResource("6_w2wfe")]
-position = Vector2(-6, -515)
-
-[node name="Spires" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="Spire" parent="Spires" instance=ExtResource("2_yeweq")]
-position = Vector2(366, -335)
-
-[node name="Spire2" parent="Spires" instance=ExtResource("2_yeweq")]
-position = Vector2(-331, -352)
-
-[node name="Spire3" parent="Spires" instance=ExtResource("2_yeweq")]
-position = Vector2(-341, 342)
-
-[node name="Spire4" parent="Spires" instance=ExtResource("2_yeweq")]
-position = Vector2(350, 358)
-
-[node name="TimeIncrement2" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
 
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]
