@@ -36,7 +36,6 @@ func _process(delta):
 		#print(player.energy)
 	update_speed()
 	move_and_slide()
-	print(health)
 
 
 func _on_player_detection_body_entered(body):

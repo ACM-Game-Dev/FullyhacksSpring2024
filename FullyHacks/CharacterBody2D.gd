@@ -7,12 +7,17 @@ signal melee_hold
 signal spire_enter
 
 
+var bullet = preload("res://rad_particle.tscn")
+
+
 const SPEED = 300.0
 const MAX_ENERGY = 100
 const MELEE_COOLDOWN = 0.6
-const RANGED_COOLDOWN = 0.05
+const RANGED_COOLDOWN = 0.1
 
 var melee_damage = 25.0
+var ranged_damage = 50.0
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -77,16 +82,23 @@ func _on_melee(val):
 	%MeleeTimer.start()
 
 func _on_ranged():
-	#print("RANGED'D")
-	can_melee = false
-	%MeleeTimer.wait_time = MELEE_COOLDOWN
-	%MeleeTimer.start()
+	print("RANGED'D")
+	if energy >= 5:
+		var new_bullet = bullet.instantiate()
+		get_parent().add_child(new_bullet)
+		new_bullet.global_position = %Arm.global_position
+		new_bullet.global_rotation = %Arm.global_rotation
+		energy -= 5
+	
+	can_ranged = false
+	%RangedTimer.wait_time = RANGED_COOLDOWN
+	%RangedTimer.start()
 
 func _on_melee_timer_timeout():
 	can_melee = true
 
 func _on_ranged_timer_timeout():
-	can_melee = true
+	can_ranged = true
 
 func gain_energy(val):
 	if energy <= MAX_ENERGY:

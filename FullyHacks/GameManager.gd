@@ -58,9 +58,7 @@ func _on_time_increment_timeout():
 	time_since_spawn += time_speed
 	
 	difficulty = round((time / 20) + 1)
-	#print(difficulty)
 
-	#print(time)
 func get_difficulty():
 	return difficulty
 	
