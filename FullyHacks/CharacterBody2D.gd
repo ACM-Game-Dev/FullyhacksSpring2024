@@ -4,12 +4,13 @@ signal player_death
 signal melee
 signal ranged
 signal melee_hold
+signal spire_enter
+
 
 const SPEED = 300.0
 
 const MELEE_COOLDOWN = 0.6
 const RANGED_COOLDOWN = 0.05
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -82,3 +83,6 @@ func _on_melee_timer_timeout():
 
 func _on_ranged_timer_timeout():
 	can_melee = true
+	
+func _player():
+	pass
