@@ -20,5 +20,5 @@ func _process(delta):
 
 func _on_time_increment_timeout():
 	time += 0.1
-	print(time)
+	#print(time)
 	

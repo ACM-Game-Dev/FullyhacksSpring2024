@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmsssbsoe6chl"]
+[gd_scene load_steps=9 format=3 uid="uid://cmsssbsoe6chl"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_gcu7q"]
 [ext_resource type="Texture2D" uid="uid://y64m1xxp76vk" path="res://icon.svg" id="2_5ae48"]
+[ext_resource type="Script" path="res://Character/Arm.gd" id="3_obpmv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oosqe"]
 
@@ -21,6 +22,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeqcr"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_gcu7q")
@@ -48,7 +51,24 @@ unique_name_in_owner = true
 [node name="RangedTimer" type="Timer" parent="Cooldowns"]
 unique_name_in_owner = true
 
+[node name="Arm" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(40, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_obpmv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm"]
+light_mask = 0
+scale = Vector2(3, 4)
+shape = SubResource("CircleShape2D_yeqcr")
+debug_color = Color(0, 0.623529, 0.545098, 0.419608)
+
+[node name="HitReset" type="Timer" parent="Arm"]
+one_shot = true
+
 [connection signal="melee" from="." to="." method="_on_melee"]
 [connection signal="ranged" from="." to="." method="_on_ranged"]
 [connection signal="timeout" from="Cooldowns/MeleeTimer" to="." method="_on_melee_timer_timeout"]
 [connection signal="timeout" from="Cooldowns/RangedTimer" to="." method="_on_ranged_timer_timeout"]
+[connection signal="timeout" from="Arm/HitReset" to="Arm" method="_on_hit_reset_timeout"]

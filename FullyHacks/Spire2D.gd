@@ -13,4 +13,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	prox.emit()
-	print("Player Entered!") # Replace with function body.
+	#print("Player Entered!") # Replace with function body.

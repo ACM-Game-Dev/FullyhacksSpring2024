@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx1lwwrqt5a4k"]
+[gd_scene load_steps=4 format=3 uid="uid://x1m4cskfo4vd"]
 
 [ext_resource type="Script" path="res://Spire2D.gd" id="1_eoap4"]
 [ext_resource type="Texture2D" uid="uid://v8xq6a2pbl0c" path="res://spire-logo-png-transparent.png" id="2_skreq"]

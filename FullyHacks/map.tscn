@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
-[ext_resource type="PackedScene" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="PackedScene" uid="uid://x1m4cskfo4vd" path="res://spire.tscn" id="2_yeweq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 
@@ -218,8 +218,6 @@ position = Vector2(-341, 342)
 
 [node name="Area2D4" parent="." instance=ExtResource("2_yeweq")]
 position = Vector2(350, 358)
-
-[node name="Area2D5" type="Area2D" parent="."]
 
 [node name="TimeIncrement" type="Timer" parent="."]
 wait_time = 0.1
