@@ -16,7 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	charge = clamp(charge, 0, 10)
+	charge = clamp(charge, 0, MAX_CHARGE)
+	$PointLight2D.energy = charge /75.0
+	print("Collective Charge:", str(global.collective_charge))
 
 func _on_body_entered(body):
 	if body.has_method("_player"):
@@ -26,11 +28,16 @@ func _on_body_entered(body):
 
 
 func _on_charge_timer_timeout():
-	if charging:
-		charge += 0.1
+	if charging and charge < MAX_CHARGE:
+		charge += CHARGE_RATE
+		global.collective_charge += CHARGE_RATE
 		print(charge)
-	if not charging:
-		charge -= 0.05
+		
+	if not charging and charge > 0:
+		charge -= CHARGE_FALLOFF_RATE
+		global.collective_charge -= CHARGE_FALLOFF_RATE
+
+
 
 
 func _on_body_exited(body):
