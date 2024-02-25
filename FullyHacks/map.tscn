@@ -12,6 +12,7 @@
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainWalls"]
 
@@ -44,6 +45,7 @@ scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
 
 [node name="Corners" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
 
 [node name="Corner" type="Node2D" parent="Corners"]
 
@@ -203,3 +205,6 @@ scale = Vector2(0.84, 1)
 position = Vector2(22, -212)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
