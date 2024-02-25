@@ -89,4 +89,6 @@ func _on_melee_timer_timeout():
 func _on_ranged_timer_timeout():
 	can_melee = true
 
+func _player():
+	pass
 
