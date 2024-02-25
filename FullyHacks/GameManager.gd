@@ -6,6 +6,7 @@ const SPAWN_LOCATIONS = {
 
 var time = 0
 var difficulty = 1
+var time_speed = 0.1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +20,6 @@ func _process(delta):
 
 
 func _on_time_increment_timeout():
-	time += 0.1
+	time += time_speed
 	#print(time)
 	

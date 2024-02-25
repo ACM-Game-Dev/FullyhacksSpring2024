@@ -223,4 +223,6 @@ position = Vector2(350, 358)
 wait_time = 0.1
 autostart = true
 
+[node name="Node" type="Node" parent="TimeIncrement"]
+
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]

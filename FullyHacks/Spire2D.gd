@@ -33,6 +33,7 @@ func _on_charge_timer_timeout():
 		charge -= 0.05
 
 
+
 func _on_body_exited(body):
 	if body.has_method("_player"):
 		charging = false
