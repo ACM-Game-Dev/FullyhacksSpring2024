@@ -24,28 +24,29 @@ func _process(delta):
 	#print("Collective Charge:", str(global.collective_charge))
 
 func _on_body_entered(body):
-	if body.has_method("_player"):
+	if body.has_method("gain_energy"):
+		player = body
 		charging = true
 		prox.emit()
 		print("Player Entered, Charging Up!")
 
 
 func _on_charge_timer_timeout():
-	if charging and charge < MAX_CHARGE:
-		charge += CHARGE_RATE
-		global_charge += CHARGE_RATE
-		global.collective_charge += CHARGE_RATE
+	if charging:
+		if charge < MAX_CHARGE:
+			charge += CHARGE_RATE
+			global_charge += CHARGE_RATE
+		player.gain_energy(round(charge / 25) + 0.5)
 		#print(charge)
 		
 	if not charging and charge > 0:
 		charge -= CHARGE_FALLOFF_RATE
 		global_charge -= CHARGE_FALLOFF_RATE
-		global.collective_charge -= CHARGE_FALLOFF_RATE
 	#print(global_charge)
 
 
 
 func _on_body_exited(body):
-	if body.has_method("_player"):
+	if body.has_method("gain_energy"):
 		charging = false
 		print("Charging Stopped!")

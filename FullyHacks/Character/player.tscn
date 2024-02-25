@@ -1,14 +1,79 @@
-[gd_scene load_steps=40 format=3 uid="uid://cmsssbsoe6chl"]
+[gd_scene load_steps=43 format=3 uid="uid://cmsssbsoe6chl"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_gcu7q"]
 [ext_resource type="Texture2D" uid="uid://be4mfn1gsfckw" path="res://Art/player_spritesheet.png" id="2_vscmk"]
 [ext_resource type="Script" path="res://Character/Arm.gd" id="3_obpmv"]
 [ext_resource type="Texture2D" uid="uid://b8ep3nwcv0y6w" path="res://Animations/hit_animations/swing03.png" id="4_coid0"]
 [ext_resource type="Script" path="res://Character/MeleeAnimator.gd" id="5_5k823"]
+[ext_resource type="Script" path="res://Character/antirotate.gd" id="6_rmm25"]
+
+[sub_resource type="Gradient" id="Gradient_xf8fp"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(2.16588e-06, 0.542468, 0.259862, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0garh"]
+gradient = SubResource("Gradient_xf8fp")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oosqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g20un"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeqcr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjrel"]
+atlas = ExtResource("4_coid0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a1c0"]
+atlas = ExtResource("4_coid0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcf8l"]
+atlas = ExtResource("4_coid0")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5bh"]
+atlas = ExtResource("4_coid0")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seqyc"]
+atlas = ExtResource("4_coid0")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x7oj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjrel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a1c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcf8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seqyc")
+}],
+"loop": false,
+"name": &"melee_swing",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47gjw"]
 atlas = ExtResource("2_vscmk")
@@ -221,78 +286,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yeqcr"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wjrel"]
-atlas = ExtResource("4_coid0")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2a1c0"]
-atlas = ExtResource("4_coid0")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pcf8l"]
-atlas = ExtResource("4_coid0")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6t5bh"]
-atlas = ExtResource("4_coid0")
-region = Rect2(128, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_seqyc"]
-atlas = ExtResource("4_coid0")
-region = Rect2(256, 64, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x7oj7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjrel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2a1c0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pcf8l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6t5bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_seqyc")
-}],
-"loop": false,
-"name": &"melee_swing",
-"speed": 10.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_gcu7q")
-
-[node name="HitBox" type="CollisionShape2D" parent="."]
-scale = Vector2(4, 4)
-shape = SubResource("CircleShape2D_oosqe")
-debug_color = Color(0.988235, 0, 0.294118, 0.419608)
-
-[node name="Collider" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_g20un")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_4qf0m")
-animation = &"walk_down"
-frame_progress = 0.0714825
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Cooldowns" type="Node" parent="."]
 
@@ -304,8 +300,25 @@ one_shot = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_0garh")
+texture_scale = 2.0
+height = 2.0
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_oosqe")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_g20un")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Arm" type="Area2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 position = Vector2(40, 0)
 collision_layer = 2
 collision_mask = 2
@@ -324,6 +337,13 @@ one_shot = true
 sprite_frames = SubResource("SpriteFrames_x7oj7")
 animation = &"melee_swing"
 script = ExtResource("5_5k823")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4qf0m")
+animation = &"walk_down"
+frame_progress = 0.0714825
+script = ExtResource("6_rmm25")
 
 [connection signal="melee" from="." to="." method="_on_melee"]
 [connection signal="melee" from="." to="Arm" method="_on_player_melee"]

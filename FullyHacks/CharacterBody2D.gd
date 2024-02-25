@@ -8,7 +8,7 @@ signal spire_enter
 
 
 const SPEED = 300.0
-
+const MAX_ENERGY = 100
 const MELEE_COOLDOWN = 0.6
 const RANGED_COOLDOWN = 0.05
 
@@ -43,6 +43,7 @@ func check_ranged():
 		ranged.emit()
 
 func _physics_process(delta):
+	$PointLight2D.energy = energy /75.0
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_down", "move_up")
 
@@ -62,7 +63,7 @@ func _physics_process(delta):
 	look_at(mouse_pos)
 	check_melee()
 	check_ranged()
-
+	print(energy)
 	move_and_slide()
 
 
@@ -85,5 +86,6 @@ func _on_melee_timer_timeout():
 func _on_ranged_timer_timeout():
 	can_melee = true
 
-func _player():
-	pass
+func gain_energy(val):
+	if energy <= MAX_ENERGY:
+		energy += val

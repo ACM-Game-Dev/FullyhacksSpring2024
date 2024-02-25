@@ -101,6 +101,7 @@ frame = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-6, -3)
+scale = Vector2(3, 3)
 color = Color(0, 0.662745, 1, 1)
 texture = SubResource("GradientTexture2D_wg0j5")
 texture_scale = 3.66
