@@ -33,16 +33,12 @@ func choose_spawn(val):
 		return SPAWN_LOCATIONS.spawn_bottom
 
 func spawn_robots():
-	print("SPAWNED ROBOTS")
 	for i in range(difficulty):
 		var new_spawn = melee_enemy.instantiate()
 		add_child(new_spawn)
 		var rand = randf()
 		var spawn_pos = choose_spawn(rand)
 		new_spawn.global_position = spawn_pos
-		
-		
-	
 
 func increase_time_speed():
 	time_speed += 0.1

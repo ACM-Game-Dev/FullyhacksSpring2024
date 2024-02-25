@@ -376,6 +376,9 @@ sprite_frames = SubResource("SpriteFrames_x7oj7")
 animation = &"melee_swing"
 script = ExtResource("5_5k823")
 
+[node name="ArmSounds" type="AudioStreamPlayer2D" parent="Arm"]
+unique_name_in_owner = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4qf0m")
@@ -388,6 +391,9 @@ libraries = {
 "": SubResource("AnimationLibrary_rqxr0")
 }
 autoplay = "walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 
 [connection signal="melee" from="." to="." method="_on_melee"]
 [connection signal="melee" from="." to="Arm" method="_on_player_melee"]

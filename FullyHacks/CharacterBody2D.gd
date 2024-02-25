@@ -78,12 +78,17 @@ func _on_melee(val):
 	#print("MELEE'D")
 	can_melee = false
 	
+	%AudioStreamPlayer2D.stream = load("res://Art/Retro Swooosh 07.wav")
+	%AudioStreamPlayer2D.play()
+	
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
 
 func _on_ranged():
 	print("RANGED'D")
 	if energy >= 5:
+		%AudioStreamPlayer2D.stream = load("res://Art/Retro Weapon Laser 36.wav")
+		%AudioStreamPlayer2D.play()
 		var new_bullet = bullet.instantiate()
 		get_parent().add_child(new_bullet)
 		new_bullet.global_position = %Arm.global_position

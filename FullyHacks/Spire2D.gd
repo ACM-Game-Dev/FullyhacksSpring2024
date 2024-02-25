@@ -27,6 +27,8 @@ func _on_body_entered(body):
 	if body.has_method("gain_energy"):
 		player = body
 		charging = true
+		%AudioStreamPlayer2D.stream = load("res://Art/Retro Charge StereoUP 12.wav")
+		%AudioStreamPlayer2D.play()
 		prox.emit()
 		print("Player Entered, Charging Up!")
 
@@ -42,11 +44,10 @@ func _on_charge_timer_timeout():
 		charge -= CHARGE_FALLOFF_RATE
 		global_charge -= CHARGE_FALLOFF_RATE
 
-
-
-
 func _on_body_exited(body):
 	if body.has_method("gain_energy"):
+		%AudioStreamPlayer2D.stream = load("res://Art/Retro Charge Off StereoUP 02.wav")
+		%AudioStreamPlayer2D.play()
 		charging = false
 		print("Charging Stopped!")
 
