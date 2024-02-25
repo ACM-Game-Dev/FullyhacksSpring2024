@@ -11,5 +11,12 @@ config_version=5
 [application]
 
 config/name="FullyHacks"
+run/main_scene="res://map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[importer_defaults]
+
+animation_library={
+"animation/fps": 60.0
+}
