@@ -12,8 +12,12 @@ config_version=5
 
 config/name="FullyHacks"
 run/main_scene="res://map.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+global="*res://Globals.gd"
 
 [importer_defaults]
 
