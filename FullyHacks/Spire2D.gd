@@ -36,13 +36,12 @@ func _on_charge_timer_timeout():
 		if charge < MAX_CHARGE:
 			charge += CHARGE_RATE
 			global_charge += CHARGE_RATE
-		player.gain_energy(round(charge / 25) + 0.5)
-		#print(charge)
+		player.gain_energy(2)
 		
 	if not charging and charge > 0:
 		charge -= CHARGE_FALLOFF_RATE
 		global_charge -= CHARGE_FALLOFF_RATE
-	#print(global_charge)
+
 
 
 
