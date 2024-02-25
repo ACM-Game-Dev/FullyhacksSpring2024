@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciejfmu7rvq0n"]
 
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
-[ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="PackedScene" path="res://spire.tscn" id="2_yeweq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 
