@@ -64,6 +64,8 @@ func _on_time_increment_timeout():
 	
 func _process(delta):
 	check_spawn_monster()
+	if Input.get_action_raw_strength("ui_cancel"):
+		get_tree().quit()
 
 
 func _on_player_player_death():

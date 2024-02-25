@@ -22,14 +22,13 @@ var attacking = false
 func _ready():
 	#populate_points()
 	print(get_tree().get_root())
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if closest_spire == null:
 		find_player()
-	else:w
+	else:
 		if chase:
 			direction = (closest_spire.global_position - self.global_position).normalized()
 			velocity.x = direction.x * SPEED
@@ -67,15 +66,12 @@ func find_player():
 			target_spire = spire
 	closest_spire = target_spire
 
-
-
 func _on_siphon_timeout():
 	chase = false
 	charged = true
 	health *= 3
 	SPEED *= 2
 	# Call function to remove energy
-
 
 func _on_player_detection_area_entered(area):
 	# I have no idea how to define this so I just called all 4
@@ -86,7 +82,6 @@ func damage_player():
 	player.take_damage(attack)
 	attacking = false
 	attacktimer.start()
-
 
 func _on_attack_timer_timeout():
 	attacking = true

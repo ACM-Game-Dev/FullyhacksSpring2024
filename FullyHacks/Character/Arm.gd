@@ -1,5 +1,15 @@
 extends Area2D
 
-func _on_hit_reset_timeout():
-	print("Arm untouchable")
-	set_collision_layer_value(2,false)
+
+	
+	
+const DAMAGE_VAL = 25
+
+
+func _on_player_melee():
+	print("Meled")
+	for body in get_overlapping_bodies():
+		print(body.name)
+		if body.has_method("take_damage"):
+			body.take_damage(DAMAGE_VAL)
+			

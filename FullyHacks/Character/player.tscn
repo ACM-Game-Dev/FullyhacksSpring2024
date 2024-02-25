@@ -307,8 +307,8 @@ one_shot = true
 [node name="Arm" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(40, 0)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_obpmv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arm"]
@@ -326,6 +326,7 @@ animation = &"melee_swing"
 script = ExtResource("5_5k823")
 
 [connection signal="melee" from="." to="." method="_on_melee"]
+[connection signal="melee" from="." to="Arm" method="_on_player_melee"]
 [connection signal="melee" from="." to="Arm/AnimatedSprite2D" method="_on_player_melee"]
 [connection signal="ranged" from="." to="." method="_on_ranged"]
 [connection signal="timeout" from="Cooldowns/MeleeTimer" to="." method="_on_melee_timer_timeout"]

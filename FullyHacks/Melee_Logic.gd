@@ -27,7 +27,7 @@ func _process(delta):
 		velocity.y = 0
 	if attacking:
 		damage_player()
-		print (player.energy)
+		#print(player.energy)
 	move_and_slide()
 
 
@@ -48,6 +48,12 @@ func damage_player():
 	player.take_damage(attack)
 	attacking = false
 	attacktimer.start()
+	
+func take_damage(val):
+	health -= val
+	print(health)
+	if health <= 0:
+		queue_free()
 
 
 func _on_attack_timer_timeout():

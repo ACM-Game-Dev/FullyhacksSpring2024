@@ -10,8 +10,8 @@ radius = 31.1849
 radius = 34.3657
 
 [node name="MrSuck" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_yxg8u")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -24,6 +24,8 @@ scale = Vector2(0.133791, 0.12793)
 texture = ExtResource("1_cca2n")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(1, 4)

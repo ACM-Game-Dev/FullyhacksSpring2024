@@ -67,13 +67,14 @@ func _physics_process(delta):
 
 
 func _on_melee():
-	print("MELEE'D")
+	#print("MELEE'D")
 	can_melee = false
+	
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
 
 func _on_ranged():
-	print("RANGED'D")
+	#print("RANGED'D")
 	can_melee = false
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
