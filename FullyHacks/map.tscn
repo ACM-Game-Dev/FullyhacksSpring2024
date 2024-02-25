@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
-[ext_resource type="PackedScene" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 
@@ -211,13 +211,13 @@ shape = SubResource("RectangleShape2D_vj1wa")
 position = Vector2(366, -335)
 
 [node name="Area2D2" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-331, -352)
+position = Vector2(-328, -356)
 
 [node name="Area2D3" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-341, 342)
+position = Vector2(-345, 340)
 
 [node name="Area2D4" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(350, 358)
+position = Vector2(345, 363)
 
 [node name="Area2D5" type="Area2D" parent="."]
 
