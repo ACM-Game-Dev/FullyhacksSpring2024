@@ -3,14 +3,11 @@ extends Area2D
 signal prox
 
 const MAX_CHARGE = 100
-const CHARGE_RATE = 1
-const CHARGE_FALLOFF_RATE = 0.5
 
 var charging = false
 
 var charge = 0
 var player = null
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,8 +39,8 @@ func _on_charge_timer_timeout():
 
 
 
+
 func _on_body_exited(body):
 	if body.has_method("_player"):
 		charging = false
 		print("Charging Stopped!")
-

@@ -20,6 +20,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_4x3vx")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
+unique_name_in_owner = true
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
@@ -219,22 +220,25 @@ position = Vector2(22, -212)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
-[node name="Spire1" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(327, -292)
-
-[node name="Spire2" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-313, -289)
-
-[node name="Spire3" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-313, 358)
-
-[node name="Spire4" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(326, 358)
-
 [node name="TimeIncrement" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
 [node name="Node" type="Node" parent="TimeIncrement"]
+
+[node name="Spires" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Spire1" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(327, -292)
+
+[node name="Spire2" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(-313, -289)
+
+[node name="Spire3" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(-313, 358)
+
+[node name="Spire4" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(326, 358)
 
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]
