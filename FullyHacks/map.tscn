@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkk3uhvumqs3t"]
+[gd_scene load_steps=9 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
 [ext_resource type="Texture2D" uid="uid://hcltwokxstf4" path="res://Art/map.png" id="4_4x3vx"]
 [ext_resource type="AudioStream" uid="uid://cdhgpu7htfpkb" path="res://Art/lazer-beam-matrika-main-version-02-10-14846.mp3" id="5_kgxj1"]
+[ext_resource type="Script" path="res://UI.gd" id="6_os16w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 size = Vector2(19.25, 21)
@@ -252,6 +253,15 @@ autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("6_os16w")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 
+"
 
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]

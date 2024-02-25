@@ -50,3 +50,6 @@ func _on_body_exited(body):
 	if body.has_method("gain_energy"):
 		charging = false
 		print("Charging Stopped!")
+
+func get_global_charge():
+	return global_charge

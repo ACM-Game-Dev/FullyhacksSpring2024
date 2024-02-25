@@ -1,23 +1,30 @@
 extends CharacterBody2D
 
+const DEFAULT_SPEED = 50
 var SPEED = 50
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var game = get_parent()
+@onready var difficulty = game.get_difficulty()
 @onready var player = game.get_node("Player")
+@onready var spire = game.get_node("Spires").get_node("Spire1")
 var direction
-@onready var health = 50 + (10 * (game.difficulty - 1))
+@onready var max_health = 50 + (10 * (game.difficulty - 1))
+@onready var health = max_health
 @onready var attack = 1 + (1 * (game.difficulty -1))
 var chase = true
 var attacking = false
 @onready var attacktimer = $PlayerDetection/Attack_Timer
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
+func update_speed():
+	print(spire.get_global_charge())
+	SPEED = DEFAULT_SPEED + spire.get_global_charge()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$PointLight2D.energy = health / max_health
 	direction = (player.global_position - self.global_position).normalized()
 	if chase == true:
 		velocity.x = direction.x * SPEED
@@ -28,6 +35,7 @@ func _process(delta):
 	if attacking:
 		damage_player()
 		#print(player.energy)
+	update_speed()
 	move_and_slide()
 
 

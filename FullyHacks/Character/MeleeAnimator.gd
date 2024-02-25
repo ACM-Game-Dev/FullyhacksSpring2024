@@ -8,7 +8,7 @@ const ANIMATIONS = {
 func _ready():
 	animation = ANIMATIONS.idle
 
-func _on_player_melee():
+func _on_player_melee(val):
 	play(ANIMATIONS.melee_swing)
 
 

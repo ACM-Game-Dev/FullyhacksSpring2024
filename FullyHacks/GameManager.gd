@@ -61,6 +61,8 @@ func _on_time_increment_timeout():
 	#print(difficulty)
 
 	#print(time)
+func get_difficulty():
+	return difficulty
 	
 func _process(delta):
 	check_spawn_monster()

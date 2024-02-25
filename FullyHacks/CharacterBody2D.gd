@@ -12,6 +12,8 @@ const MAX_ENERGY = 100
 const MELEE_COOLDOWN = 0.6
 const RANGED_COOLDOWN = 0.05
 
+var melee_damage = 25.0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var prevVelocity = Vector2.ZERO
@@ -36,7 +38,7 @@ func update_aim():
 
 func check_melee():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_melee:
-		melee.emit()
+		melee.emit(melee_damage)
 
 func check_ranged():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and can_ranged:
@@ -63,11 +65,11 @@ func _physics_process(delta):
 	look_at(mouse_pos)
 	check_melee()
 	check_ranged()
-	print(energy)
+	#print(energy)
 	move_and_slide()
 
 
-func _on_melee():
+func _on_melee(val):
 	#print("MELEE'D")
 	can_melee = false
 	
