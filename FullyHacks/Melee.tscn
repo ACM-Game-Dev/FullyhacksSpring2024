@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnxmeb0se2fbr"]
+[gd_scene load_steps=5 format=3 uid="uid://du54a2cn4d3f0"]
 
 [ext_resource type="Script" path="res://Melee_Logic.gd" id="1_y0nmf"]
 [ext_resource type="Texture2D" uid="uid://wphvbpbferp5" path="res://skull-emoji.png" id="2_hw04y"]

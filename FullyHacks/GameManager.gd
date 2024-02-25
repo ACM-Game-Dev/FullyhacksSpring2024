@@ -16,6 +16,7 @@ var time_speed = 0.1
 
 var melee_enemy = preload("res://Melee.tscn")
 
+
 func check_spawn_monster():
 	if time_since_spawn >= spawn_delay:
 		spawn_robots()
@@ -57,9 +58,13 @@ func _on_time_increment_timeout():
 	time_since_spawn += time_speed
 	
 	difficulty = round((time / 20) + 1)
-	print(difficulty)
+	#print(difficulty)
 
 	#print(time)
 	
 func _process(delta):
 	check_spawn_monster()
+
+
+func _on_player_player_death():
+	get_tree().quit()

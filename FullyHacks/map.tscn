@@ -243,4 +243,5 @@ position = Vector2(326, 358)
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(9, -270)
 
+[connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]
