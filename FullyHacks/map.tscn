@@ -1,15 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkk3uhvumqs3t"]
+[gd_scene load_steps=7 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="Texture2D" uid="uid://hcltwokxstf4" path="res://Art/map.png" id="4_4x3vx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
+size = Vector2(19.25, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj1wa"]
+size = Vector2(22.3485, 20)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_ty2ar")
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+position = Vector2(-2, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4x3vx")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
 position = Vector2(-11, -9)
@@ -17,13 +25,15 @@ position = Vector2(-11, -9)
 [node name="MainWalls" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainWalls"]
+position = Vector2(-8, 116)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D"]
-position = Vector2(-4, 313)
+position = Vector2(9, 312)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="MainWalls"]
+position = Vector2(4, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D2"]
 position = Vector2(-7, -338)
@@ -31,6 +41,7 @@ scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="MainWalls"]
+position = Vector2(-81, 34)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D3"]
@@ -39,6 +50,7 @@ scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="MainWalls"]
+position = Vector2(56, 37)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D4"]
@@ -51,7 +63,7 @@ shape = SubResource("RectangleShape2D_khguq")
 [node name="Corner" type="Node2D" parent="Corners"]
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Corners/Corner"]
-position = Vector2(-403, 0)
+position = Vector2(-521, 59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner/StaticBody2D6"]
 position = Vector2(22, -212)
@@ -59,16 +71,16 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Corners/Corner"]
-position = Vector2(-371, -291)
+position = Vector2(-343, -227)
 scale = Vector2(1.32, 0.959998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner/StaticBody2D7"]
-position = Vector2(22, -212)
+position = Vector2(4.92432, -214.584)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Corners/Corner"]
-position = Vector2(-685, -390)
+position = Vector2(-674, -341)
 rotation = 1.5708
 scale = Vector2(1.4, 1)
 
@@ -78,7 +90,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Corners/Corner"]
-position = Vector2(-412, -442)
+position = Vector2(-395, -474)
 rotation = 1.5708
 scale = Vector2(0.84, 1)
 
@@ -91,7 +103,7 @@ shape = SubResource("RectangleShape2D_vj1wa")
 rotation = 1.5708
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Corners/Corner2"]
-position = Vector2(-403, 0)
+position = Vector2(-510, 35.0018)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner2/StaticBody2D6"]
 position = Vector2(38.9992, -213.999)
@@ -99,31 +111,31 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Corners/Corner2"]
-position = Vector2(-371, -291)
+position = Vector2(-326.322, -359.228)
 scale = Vector2(1.32, 0.959998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner2/StaticBody2D7"]
-position = Vector2(22, -212)
+position = Vector2(23.1917, -100.87)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Corners/Corner2"]
-position = Vector2(-685, -390)
+position = Vector2(-661.532, -358.638)
 rotation = 1.5708
 scale = Vector2(1.4, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner2/StaticBody2D8"]
-position = Vector2(22, -212)
+position = Vector2(34.5697, -228.858)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Corners/Corner2"]
-position = Vector2(-412, -442)
+position = Vector2(-365.857, -532.215)
 rotation = 1.5708
 scale = Vector2(0.84, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner2/StaticBody2D9"]
-position = Vector2(22, -212)
+position = Vector2(63.808, -213.765)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
@@ -131,7 +143,7 @@ shape = SubResource("RectangleShape2D_vj1wa")
 rotation = -3.14159
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Corners/Corner3"]
-position = Vector2(-403, 0)
+position = Vector2(-517, 5.00131)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner3/StaticBody2D6"]
 position = Vector2(22, -212)
@@ -139,7 +151,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Corners/Corner3"]
-position = Vector2(-371, -291)
+position = Vector2(-350.001, -281.999)
 scale = Vector2(1.32, 0.959998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner3/StaticBody2D7"]
@@ -148,7 +160,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Corners/Corner3"]
-position = Vector2(-685, -390)
+position = Vector2(-670.001, -372.998)
 rotation = 1.5708
 scale = Vector2(1.4, 1)
 
@@ -158,7 +170,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Corners/Corner3"]
-position = Vector2(-412, -442)
+position = Vector2(-391.001, -526.999)
 rotation = 1.5708
 scale = Vector2(0.84, 1)
 
@@ -171,7 +183,7 @@ shape = SubResource("RectangleShape2D_vj1wa")
 rotation = -1.5708
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Corners/Corner4"]
-position = Vector2(-403, 0)
+position = Vector2(-551, 28.998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner4/StaticBody2D6"]
 position = Vector2(22, -212)
@@ -179,7 +191,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Corners/Corner4"]
-position = Vector2(-371, -291)
+position = Vector2(-381.145, -256.648)
 scale = Vector2(1.32, 0.959998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corners/Corner4/StaticBody2D7"]
@@ -188,7 +200,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Corners/Corner4"]
-position = Vector2(-685, -390)
+position = Vector2(-699.693, -362.842)
 rotation = 1.5708
 scale = Vector2(1.4, 1)
 
@@ -198,7 +210,7 @@ scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Corners/Corner4"]
-position = Vector2(-412, -442)
+position = Vector2(-418.574, -496.669)
 rotation = 1.5708
 scale = Vector2(0.84, 1)
 
@@ -207,17 +219,17 @@ position = Vector2(22, -212)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
-[node name="Area2D" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(366, -335)
+[node name="Spire1" parent="." instance=ExtResource("2_yeweq")]
+position = Vector2(327, -292)
 
-[node name="Area2D2" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-331, -352)
+[node name="Spire2" parent="." instance=ExtResource("2_yeweq")]
+position = Vector2(-313, -289)
 
-[node name="Area2D3" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-341, 342)
+[node name="Spire3" parent="." instance=ExtResource("2_yeweq")]
+position = Vector2(-313, 358)
 
-[node name="Area2D4" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(350, 358)
+[node name="Spire4" parent="." instance=ExtResource("2_yeweq")]
+position = Vector2(326, 358)
 
 [node name="TimeIncrement" type="Timer" parent="."]
 wait_time = 0.1

@@ -20,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	charge = clamp(charge, 0, MAX_CHARGE)
+	$PointLight2D.energy = charge /75.0
 
 func _on_body_entered(body):
 	if body.has_method("_player"):
