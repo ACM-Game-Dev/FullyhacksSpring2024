@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkk3uhvumqs3t"]
+[gd_scene load_steps=10 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
 [ext_resource type="Texture2D" uid="uid://hcltwokxstf4" path="res://Art/map.png" id="4_4x3vx"]
+[ext_resource type="PackedScene" uid="uid://bderngk5ajgxd" path="res://Melee.tscn" id="5_3b36l"]
+[ext_resource type="PackedScene" uid="uid://ch62drd3wn2n8" path="res://MrSuck.tscn" id="6_kfb08"]
+[ext_resource type="PackedScene" uid="uid://hi8r1i3reag4" path="res://Ranged.tscn" id="7_coo0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 size = Vector2(19.25, 21)
@@ -239,5 +242,14 @@ position = Vector2(-313, 358)
 
 [node name="Spire4" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(326, 358)
+
+[node name="Melee" parent="." instance=ExtResource("5_3b36l")]
+position = Vector2(-196, -64)
+
+[node name="MrSuck" parent="." instance=ExtResource("6_kfb08")]
+position = Vector2(75, -237)
+
+[node name="Ranged" parent="." instance=ExtResource("7_coo0k")]
+position = Vector2(315, 168)
 
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]

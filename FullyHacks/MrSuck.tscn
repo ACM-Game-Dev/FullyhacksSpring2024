@@ -1,7 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://qr8b2k8jlhb3"]
+[gd_scene load_steps=11 format=3 uid="uid://ch62drd3wn2n8"]
 
-[ext_resource type="Texture2D" uid="uid://wphvbpbferp5" path="res://skull-emoji.png" id="1_cca2n"]
 [ext_resource type="Script" path="res://MrSuck.gd" id="1_yxg8u"]
+[ext_resource type="Texture2D" uid="uid://dhc1q1numxtd3" path="res://Art/SiphonEnemy.png" id="2_xy64j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xocn"]
+atlas = ExtResource("2_xy64j")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loyuc"]
+atlas = ExtResource("2_xy64j")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhnri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xocn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loyuc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sqql"]
 radius = 31.1849
@@ -9,19 +31,57 @@ radius = 31.1849
 [sub_resource type="CircleShape2D" id="CircleShape2D_yiflq"]
 radius = 34.3657
 
+[sub_resource type="Animation" id="Animation_xpx3g"]
+resource_name = "suck_walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_t4ca3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5l2y"]
+_data = {
+"RESET": SubResource("Animation_t4ca3"),
+"suck_walk": SubResource("Animation_xpx3g")
+}
+
 [node name="MrSuck" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_yxg8u")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fhnri")
+frame = 1
+
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 5.5)
 shape = SubResource("CircleShape2D_1sqql")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.999992, 2)
-scale = Vector2(0.133791, 0.12793)
-texture = ExtResource("1_cca2n")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
@@ -35,6 +95,11 @@ one_shot = true
 
 [node name="Attack Timer" type="Timer" parent="PlayerDetection"]
 wait_time = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m5l2y")
+}
 
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="area_shape_entered" from="PlayerDetection" to="." method="_on_player_detection_area_shape_entered"]
