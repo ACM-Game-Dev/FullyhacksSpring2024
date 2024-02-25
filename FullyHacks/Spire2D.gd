@@ -4,11 +4,12 @@ signal prox
 
 const MAX_CHARGE = 100
 const CHARGE_RATE = 1
-const CHARGE_FALLOFF_RATE = 0.5
+const CHARGE_FALLOFF_RATE = 0.25
 
 var charging = false
 
 var charge = 0
+static var global_charge = 0
 var player = null
 
 # Called when the node enters the scene tree for the first time.
@@ -32,13 +33,15 @@ func _on_body_entered(body):
 func _on_charge_timer_timeout():
 	if charging and charge < MAX_CHARGE:
 		charge += CHARGE_RATE
+		global_charge += CHARGE_RATE
 		global.collective_charge += CHARGE_RATE
-		print(charge)
+		#print(charge)
 		
 	if not charging and charge > 0:
 		charge -= CHARGE_FALLOFF_RATE
+		global_charge -= CHARGE_FALLOFF_RATE
 		global.collective_charge -= CHARGE_FALLOFF_RATE
-
+	print(global_charge)
 
 
 
