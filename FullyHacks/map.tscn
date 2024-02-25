@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkk3uhvumqs3t"]
+[gd_scene load_steps=7 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
-[ext_resource type="PackedScene" uid="uid://bibxc03qearqg" path="res://Ranged.tscn" id="4_wx07h"]
-[ext_resource type="PackedScene" uid="uid://dnxmeb0se2fbr" path="res://Melee.tscn" id="5_jyyb8"]
 [ext_resource type="PackedScene" uid="uid://qr8b2k8jlhb3" path="res://MrSuck.tscn" id="6_w2wfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
@@ -226,28 +224,22 @@ autostart = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Melee" parent="Node2D" instance=ExtResource("5_jyyb8")]
-position = Vector2(-70, -231)
-
 [node name="MrSuck" parent="Node2D" instance=ExtResource("6_w2wfe")]
 position = Vector2(-6, -515)
-
-[node name="Ranged" parent="Node2D" instance=ExtResource("4_wx07h")]
-position = Vector2(-275, -283)
 
 [node name="Spires" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Area2D" parent="Spires" instance=ExtResource("2_yeweq")]
+[node name="Spire" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(366, -335)
 
-[node name="Area2D2" parent="Spires" instance=ExtResource("2_yeweq")]
+[node name="Spire2" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(-331, -352)
 
-[node name="Area2D3" parent="Spires" instance=ExtResource("2_yeweq")]
+[node name="Spire3" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(-341, 342)
 
-[node name="Area2D4" parent="Spires" instance=ExtResource("2_yeweq")]
+[node name="Spire4" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(350, 358)
 
 [node name="TimeIncrement2" type="Timer" parent="."]

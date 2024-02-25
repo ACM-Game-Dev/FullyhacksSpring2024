@@ -9,6 +9,7 @@ var chase = true
 var is_moving = false
 var reloaded = true
 @onready var shoot_timer = $"PlayerDetection/Shoot Timer"
+@onready var game = player.get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,10 +33,13 @@ func _on_player_detection_body_exited(body):
 		chase = true
 
 func shoot_bullet():
+	look_at(player.global_position)
 	reloaded = false
 	var bullet = BULLET.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = global_position
+	bullet.rotation = rotation
+	
 		
 	shoot_timer.start()
 

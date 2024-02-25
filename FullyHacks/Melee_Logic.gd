@@ -6,7 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var game = player.get_parent()
 var direction
 @onready var health = 50 + (10 * (game.difficulty - 1))
-@onready var attack = 5 + (1 * (game.difficulty -1))
+@onready var attack = 1 + (1 * (game.difficulty -1))
 var chase = true
 var attacking = false
 @onready var attacktimer = $PlayerDetection/Attack_Timer
