@@ -7,12 +7,10 @@ signal melee_hold
 signal spire_enter
 
 
-const SPEED = 200.0
+const SPEED = 300.0
 
 const MELEE_COOLDOWN = 0.6
-const MELEE_DURATION = 0.15
 const RANGED_COOLDOWN = 0.05
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -34,6 +32,7 @@ func handle_death():
 
 func update_aim():
 	mouse_pos = get_global_mouse_position()
+	#print(mouse_pos)
 
 func check_melee():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_melee:
@@ -44,8 +43,8 @@ func check_ranged():
 		ranged.emit()
 
 func _physics_process(delta):
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_down", "move_up")
+	var direction_x = Input.get_axis("ui_left", "ui_right")
+	var direction_y = Input.get_axis("ui_up", "ui_down")
 
 	if direction_x or direction_y:
 		velocity.x = direction_x * SPEED
@@ -68,17 +67,13 @@ func _physics_process(delta):
 
 
 func _on_melee():
-	#print("MELEE'D")
+	print("MELEE'D")
 	can_melee = false
-	%Arm.set_collision_layer_value(2,true)
-	#print("Arm Touchable")godot
-	%Arm/HitReset.wait_time = MELEE_DURATION
-	%Arm/HitReset.start()
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
 
 func _on_ranged():
-	#print("RANGED'D")
+	print("RANGED'D")
 	can_melee = false
 	%MeleeTimer.wait_time = MELEE_COOLDOWN
 	%MeleeTimer.start()
