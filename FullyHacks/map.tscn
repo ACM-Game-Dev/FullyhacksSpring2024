@@ -20,7 +20,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_4x3vx")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
-unique_name_in_owner = true
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
