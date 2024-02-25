@@ -21,11 +21,6 @@ animation_library={
 "animation/fps": 60.0
 }
 
-<<<<<<< HEAD
-[physics]
-
-2d/default_gravity=0.0
-=======
 [input]
 
 move_left={
@@ -48,4 +43,3 @@ move_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"echo":false,"script":null)
 ]
 }
->>>>>>> 3e4fdbc05384899b6bfc7f7c90bf3ae0a14a6d2a

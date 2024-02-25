@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkk3uhvumqs3t"]
+[gd_scene load_steps=8 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="PackedScene" uid="uid://dnxmeb0se2fbr" path="res://Melee.tscn" id="5_jyyb8"]
+[ext_resource type="PackedScene" uid="uid://qr8b2k8jlhb3" path="res://MrSuck.tscn" id="6_w2wfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
+size = Vector2(18.9001, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj1wa"]
 
@@ -12,6 +15,7 @@
 script = ExtResource("1_ty2ar")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
+unique_name_in_owner = true
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
@@ -22,29 +26,35 @@ position = Vector2(-11, -9)
 position = Vector2(-4, 313)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
+one_way_collision = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="MainWalls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D2"]
 position = Vector2(-7, -338)
+rotation = 3.14159
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
+one_way_collision = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="MainWalls"]
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D3"]
 position = Vector2(-4, 313)
-scale = Vector2(20, 1)
+scale = Vector2(20.1002, 1.01194)
 shape = SubResource("RectangleShape2D_khguq")
+one_way_collision = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="MainWalls"]
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainWalls/StaticBody2D4"]
-position = Vector2(-7, -338)
+position = Vector2(3.99932, -338)
+rotation = 3.14159
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_khguq")
+one_way_collision = true
 
 [node name="Corners" type="Node2D" parent="."]
 
@@ -207,20 +217,31 @@ position = Vector2(22, -212)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
 
-[node name="Area2D" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(366, -335)
-
-[node name="Area2D2" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-331, -352)
-
-[node name="Area2D3" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(-341, 342)
-
-[node name="Area2D4" parent="." instance=ExtResource("2_yeweq")]
-position = Vector2(350, 358)
-
 [node name="TimeIncrement" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Melee" parent="Node2D" instance=ExtResource("5_jyyb8")]
+position = Vector2(-70, -231)
+
+[node name="MrSuck" parent="Node2D" instance=ExtResource("6_w2wfe")]
+position = Vector2(-6, -515)
+
+[node name="Spires" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Area2D" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(366, -335)
+
+[node name="Area2D2" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(-331, -352)
+
+[node name="Area2D3" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(-341, 342)
+
+[node name="Area2D4" parent="Spires" instance=ExtResource("2_yeweq")]
+position = Vector2(350, 358)
 
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]

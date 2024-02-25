@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8vtvh1givx4k"]
+[gd_scene load_steps=5 format=3 uid="uid://bibxc03qearqg"]
 
 [ext_resource type="Script" path="res://Ranged_Logic.gd" id="1_5r085"]
 [ext_resource type="Texture2D" uid="uid://wphvbpbferp5" path="res://skull-emoji.png" id="2_thqj5"]
