@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciejfmu7rvq0n"]
+[gd_scene load_steps=6 format=3 uid="uid://ciejfmu7rvq0n"]
 
+[ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
 [ext_resource type="PackedScene" path="res://spire.tscn" id="2_yeweq"]
 
@@ -8,6 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj1wa"]
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_ty2ar")
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
 position = Vector2(-11, -9)
@@ -216,3 +218,11 @@ position = Vector2(-341, 342)
 
 [node name="Area2D4" parent="." instance=ExtResource("2_yeweq")]
 position = Vector2(350, 358)
+
+[node name="Area2D5" type="Area2D" parent="."]
+
+[node name="TimeIncrement" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]
