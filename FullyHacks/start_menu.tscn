@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://wv2sa2hytkaw"]
+
+[ext_resource type="Script" path="res://StartMenu.gd" id="1_oymen"]
+[ext_resource type="FontFile" uid="uid://c8mcrkdw8rx5p" path="res://font.ttf" id="2_5e80g"]
+[ext_resource type="Texture2D" uid="uid://be4mfn1gsfckw" path="res://Art/player_spritesheet.png" id="3_i08n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3mxf"]
+atlas = ExtResource("3_i08n5")
+region = Rect2(0, 72, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g431"]
+atlas = ExtResource("3_i08n5")
+region = Rect2(36, 72, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dm3ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3mxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g431")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oymen")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 543.0
+offset_right = 206.0
+offset_bottom = 574.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_5e80g")
+text = "Play Game"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 35.0
+offset_right = 325.0
+offset_bottom = 56.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_5e80g")
+text = "Test Subject: Neon"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(949, 472)
+scale = Vector2(9.25, 7.83333)
+sprite_frames = SubResource("SpriteFrames_dm3ib")
+autoplay = "default"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 168.0
+offset_right = 842.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("2_5e80g")
+text = "Rules!
+1) WASD to move!
+
+2) Left-Click to Melee!
+
+3) Right-Click to Shoot!
+But beware, shooting uses some of your neon glow!
+
+4) Regenerate your glow by standing near the neon reactors!
+
+5) The robots do not like you absorbing the reactors! 
+Standing near them will anger the robots, making them faster and tougher!"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 108.0
+offset_right = 691.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_5e80g")
+text = "Survive as long as you can!!!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
