@@ -20,3 +20,7 @@ config/icon="res://icon.svg"
 animation_library={
 "animation/fps": 60.0
 }
+
+[physics]
+
+2d/default_gravity=0.0

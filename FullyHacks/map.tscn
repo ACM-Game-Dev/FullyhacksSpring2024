@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciejfmu7rvq0n"]
+[gd_scene load_steps=7 format=3 uid="uid://ciejfmu7rvq0n"]
 
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
+[ext_resource type="PackedScene" uid="uid://dnxmeb0se2fbr" path="res://Melee.tscn" id="2_g71ie"]
+[ext_resource type="PackedScene" uid="uid://c8vtvh1givx4k" path="res://Ranged.tscn" id="3_hye1f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qflyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 
@@ -9,9 +13,12 @@
 [node name="Map" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_uajbq")]
+unique_name_in_owner = true
 position = Vector2(-11, -9)
 
 [node name="MainWalls" type="Node2D" parent="."]
+top_level = true
+material = SubResource("CanvasItemMaterial_qflyd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainWalls"]
 
@@ -203,3 +210,11 @@ scale = Vector2(0.84, 1)
 position = Vector2(22, -212)
 scale = Vector2(10, 1)
 shape = SubResource("RectangleShape2D_vj1wa")
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="Melee" parent="Mobs" instance=ExtResource("2_g71ie")]
+position = Vector2(364, -356)
+
+[node name="Ranged" parent="Mobs" instance=ExtResource("3_hye1f")]
+position = Vector2(-328, -376)
