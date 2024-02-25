@@ -41,7 +41,7 @@ func _on_charge_timer_timeout():
 		charge -= CHARGE_FALLOFF_RATE
 		global_charge -= CHARGE_FALLOFF_RATE
 		global.collective_charge -= CHARGE_FALLOFF_RATE
-	print(global_charge)
+	#print(global_charge)
 
 
 

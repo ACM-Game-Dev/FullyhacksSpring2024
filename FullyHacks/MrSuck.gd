@@ -7,8 +7,8 @@ var chase = true
 var charged = false
 var closest_spire = null
 var attacking = false
-@onready var player = %Player
-@onready var game = player.get_parent()
+@onready var game = get_tree().get_root().get_node("Map")
+@onready var player = game.get_node("Player")
 @onready var health = 50 + (10 * (game.difficulty - 1))
 @onready var attack = 2 + (2 * (game.difficulty -1))
 @onready var spires = %Spires
@@ -21,27 +21,30 @@ var attacking = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#populate_points()
+	print(get_tree().get_root())
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	find_player()
-	if chase:
-		direction = (closest_spire.global_position - self.global_position).normalized()
-		velocity.x = direction.x * SPEED
-		velocity.y = direction.y * SPEED
-	elif charged:
-		direction = (player.global_position - self.global_position).normalized()
-		velocity.x = direction.x * SPEED
-		velocity.y = direction.y * SPEED
-	else:
-		velocity.x = 0
-		velocity.y = 0
-	if attacking:
-		damage_player()
-		print (player.energy)
-	move_and_slide()
+	if closest_spire == null:
+		find_player()
+	else:w
+		if chase:
+			direction = (closest_spire.global_position - self.global_position).normalized()
+			velocity.x = direction.x * SPEED
+			velocity.y = direction.y * SPEED
+		elif charged:
+			direction = (player.global_position - self.global_position).normalized()
+			velocity.x = direction.x * SPEED
+			velocity.y = direction.y * SPEED
+		else:
+			velocity.x = 0
+			velocity.y = 0
+		if attacking:
+			damage_player()
+			print (player.energy)
+		move_and_slide()
 
 
 

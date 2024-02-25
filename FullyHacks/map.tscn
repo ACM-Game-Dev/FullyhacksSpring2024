@@ -240,4 +240,7 @@ position = Vector2(-313, 358)
 [node name="Spire4" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(326, 358)
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(9, -270)
+
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]

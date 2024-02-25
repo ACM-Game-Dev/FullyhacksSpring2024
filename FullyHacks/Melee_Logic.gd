@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var SPEED = 50
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var player = %Player
-@onready var game = player.get_parent()
+@onready var game = get_parent()
+@onready var player = game.get_node("Player")
 var direction
 @onready var health = 50 + (10 * (game.difficulty - 1))
 @onready var attack = 1 + (1 * (game.difficulty -1))

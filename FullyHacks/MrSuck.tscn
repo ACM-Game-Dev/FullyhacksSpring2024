@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qr8b2k8jlhb3"]
+[gd_scene load_steps=5 format=3 uid="uid://dd5g6sd4bhu8o"]
 
 [ext_resource type="Texture2D" uid="uid://wphvbpbferp5" path="res://skull-emoji.png" id="1_cca2n"]
 [ext_resource type="Script" path="res://MrSuck.gd" id="1_yxg8u"]
