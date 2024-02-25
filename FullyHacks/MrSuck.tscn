@@ -30,6 +30,7 @@ position = Vector2(1, 4)
 shape = SubResource("CircleShape2D_yiflq")
 
 [node name="Siphon" type="Timer" parent="PlayerDetection"]
+wait_time = 30.0
 one_shot = true
 
 [node name="Attack Timer" type="Timer" parent="PlayerDetection"]
