@@ -3,6 +3,8 @@ extends Area2D
 signal prox
 
 const MAX_CHARGE = 100
+const CHARGE_RATE = 1
+const CHARGE_FALLOFF_RATE = 0.5
 
 var charging = false
 
@@ -18,7 +20,7 @@ func _ready():
 func _process(delta):
 	charge = clamp(charge, 0, MAX_CHARGE)
 	$PointLight2D.energy = charge /75.0
-	print("Collective Charge:", str(global.collective_charge))
+	#print("Collective Charge:", str(global.collective_charge))
 
 func _on_body_entered(body):
 	if body.has_method("_player"):

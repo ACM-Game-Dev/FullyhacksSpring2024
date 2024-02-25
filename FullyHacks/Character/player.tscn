@@ -290,7 +290,7 @@ shape = SubResource("CircleShape2D_g20un")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4qf0m")
 animation = &"walk_down"
-frame_progress = 0.129959
+frame_progress = 0.0714825
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

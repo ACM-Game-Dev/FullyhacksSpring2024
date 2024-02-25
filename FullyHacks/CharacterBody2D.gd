@@ -43,8 +43,8 @@ func check_ranged():
 		ranged.emit()
 
 func _physics_process(delta):
-	var direction_x = Input.get_axis("ui_left", "ui_right")
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_down", "move_up")
 
 	if direction_x or direction_y:
 		velocity.x = direction_x * SPEED
