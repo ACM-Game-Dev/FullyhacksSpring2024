@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	charge = clamp(charge, 0, MAX_CHARGE)
+	charge = clamp(charge, 0, 10)
 
 func _on_body_entered(body):
 	if body.has_method("_player"):
@@ -32,13 +32,11 @@ func _on_charge_timer_timeout():
 	if charging and charge < MAX_CHARGE:
 		charge += CHARGE_RATE
 		print(charge)
-	if not charging and charge > 0:
-		charge -= CHARGE_FALLOFF_RATE
-
+	if not charging:
+		charge -= 0.05
 
 
 func _on_body_exited(body):
 	if body.has_method("_player"):
 		charging = false
 		print("Charging Stopped!")
-
