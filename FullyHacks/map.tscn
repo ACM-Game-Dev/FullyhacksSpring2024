@@ -244,4 +244,10 @@ position = Vector2(-341, 342)
 [node name="Area2D4" parent="Spires" instance=ExtResource("2_yeweq")]
 position = Vector2(350, 358)
 
+[node name="TimeIncrement" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Node" type="Node" parent="TimeIncrement"]
+
 [connection signal="timeout" from="TimeIncrement" to="." method="_on_time_increment_timeout"]
