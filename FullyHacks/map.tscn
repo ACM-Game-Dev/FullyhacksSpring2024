@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgavjw3x860y8"]
+[gd_scene load_steps=6 format=3 uid="uid://bkk3uhvumqs3t"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_ty2ar"]
 [ext_resource type="PackedScene" uid="uid://cmsssbsoe6chl" path="res://Character/player.tscn" id="1_uajbq"]
-[ext_resource type="PackedScene" uid="uid://x1m4cskfo4vd" path="res://spire.tscn" id="2_yeweq"]
+[ext_resource type="PackedScene" uid="uid://dx1lwwrqt5a4k" path="res://spire.tscn" id="2_yeweq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khguq"]
 
