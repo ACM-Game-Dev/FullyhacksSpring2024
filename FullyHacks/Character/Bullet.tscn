@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dulf6bkq43uyg"]
+
+[ext_resource type="Script" path="res://Character/Bullet.gd" id="1_sm087"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3usxs"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_sm087")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3usxs")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

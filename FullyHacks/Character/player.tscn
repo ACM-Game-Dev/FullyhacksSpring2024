@@ -1,18 +1,18 @@
 [gd_scene load_steps=46 format=3 uid="uid://cmsssbsoe6chl"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_gcu7q"]
+[ext_resource type="Script" path="res://Character/CharacterBody2D.gd" id="1_gcu7q"]
 [ext_resource type="Texture2D" uid="uid://be4mfn1gsfckw" path="res://Art/player_spritesheet.png" id="2_vscmk"]
 [ext_resource type="Script" path="res://Character/Arm.gd" id="3_obpmv"]
 [ext_resource type="Texture2D" uid="uid://b8ep3nwcv0y6w" path="res://Animations/hit_animations/swing03.png" id="4_coid0"]
 [ext_resource type="Script" path="res://Character/MeleeAnimator.gd" id="5_5k823"]
 [ext_resource type="Script" path="res://Character/antirotate.gd" id="6_rmm25"]
 
-[sub_resource type="Gradient" id="Gradient_xf8fp"]
+[sub_resource type="Gradient" id="Gradient_vvfbn"]
 offsets = PackedFloat32Array(0, 0.74026)
 colors = PackedColorArray(2.16588e-06, 0.542468, 0.259862, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0garh"]
-gradient = SubResource("Gradient_xf8fp")
+gradient = SubResource("Gradient_vvfbn")
 width = 100
 height = 100
 fill = 1

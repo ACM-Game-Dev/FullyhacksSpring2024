@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="FullyHacks"
-run/main_scene="res://start_menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+run/main_scene="res://Game/start_menu.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
-global="*res://Globals.gd"
-Score="*res://score.gd"
+global="*res://Game/Globals.gd"
+Score="*res://Game/score.gd"
 
 [display]
 
